@@ -24,7 +24,7 @@ function setDefaultLanguage(){
 }
 function ChangeLanguage(event) {
     console.log(event.target.parentElement.dataset.language);
-    let texts = GetLanguage(event.target.parentElement.dataset.language)
+    GetLanguage(event.target.parentElement.dataset.language)
 }
 
 async function GetLanguage(language) {
