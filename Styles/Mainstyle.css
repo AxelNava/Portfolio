@@ -173,6 +173,10 @@ margin:0;
 #Languages{
     background-color: #313131;
 }
+#firstRow{
+    display:flex;
+    flex-flow: row wrap;
+}
 hr {
     padding: 0;
     border: none;
