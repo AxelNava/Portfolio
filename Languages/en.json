@@ -1,0 +1,23 @@
+{
+  "Header": {
+    "Title": "Portfolio",
+    "Name": "Axel Nava, Game Developer"
+  },
+  "Personal": {
+    "AboutMeTitle": "About me",
+    "AboutMe": "I'm game developer student with 1 year of experience in C# with Unity Engine. I've developed video games for school. I'm learning HTML, JavaScript and CSS. I have experience creating websites with PHP and MySQL as well with C# and SQLite"
+  },
+  "Skills": {
+    "TitleSkill": "Skills",
+    "IntroSkill": "I'm involved in different areas like:",
+    "ProjectWebTitle": "Web develop",
+    "ProjectWebDescription": "Design a website with connection to MySQL in PHP. Design in JavaScript and HTML",
+    "VideoGamesTitle": "Video games",
+    "VideoGamesDescription": "Design games in Unity Engine with MIDI files and some mechanics in Unreal Engine 4",
+    "DesktopTitle": "Desktop application",
+    "DesktopDescription": "User administrator for generate Water Receives in PDF files, and manage users with automation of debts in database SQLite",
+    "LanguagesTitle": "Languages",
+    "LanguagesDescriptionSpanish": "Spanish: 5/5",
+    "LanguagesDescriptionEnglish": "English: 3/5"
+  }
+}

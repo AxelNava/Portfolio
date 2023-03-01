@@ -1,0 +1,23 @@
+{
+  "Header": {
+    "Title": "Portafolio",
+    "Name": "Axel Nava, Desarrollador de Videojuegos"
+  },
+  "Personal": {
+    "AboutMeTitle": "Acerca de mí",
+    "AboutMe": "Soy un estudiante de desarrollo de videojuegos con 1 año de experiencia en C# y Unity Engine. He desarrollado videojuegos para la escuela. Estoy aprendiendo HTML, JavaScript y CSS. Tengo experiencia creando páginas web con  PHP y coneción a MySQL así como C# a SQLite"
+  },
+  "Skills": {
+    "TitleSkill": "Habilidades",
+    "IntroSkill": "He estado envuelto en diferentes áreas como:",
+    "ProjectWebTitle": "Desarrollador web",
+    "ProjectWebDescription": "Diseñod e paginas wev con conección a MySQL en PHP. diseño en JavaScript y HTML",
+    "VideoGamesTitle": "Videojuegos",
+    "VideoGamesDescription": "Diseño de videojuegos en Unity Engine con archivos MIDI y algunas mécanicas en Unreal Engine 4",
+    "DesktopTitle": "Aplicaciones de Escritorio",
+    "DesktopDescription": "Administrador de usuario para generar recibos de agua en archivos PDF y manejo de usuarios con automatización en deudas con base de datos SQLite",
+    "LanguagesTitle": "Idiomas",
+    "LanguagesDescriptionSpanish": "Español: 5/5",
+    "LanguagesDescriptionEnglish": "Inglés: 3/5"
+  }
+}
