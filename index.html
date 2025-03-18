@@ -1,140 +1,131 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="utf-8">
     <meta name="color-scheme" content="light dark">
     <link rel="stylesheet" href="Styles/Styles.css">
+    <meta name="viewport" content="width=device-width; initial-scale=1.0;">
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@justinribeiro/lite-youtube@1/lite-youtube.min.js"></script>
     <script type="module" src="./Scripts/app.js"></script>
     <title data-section="Header" data-value="Title">Portfolio</title>
 </head>
 <body>
-<div class="menuBar">
-    <div class="flags" id="flags">
-        <div class="flags__item" data-language="es">
-            <img src="./img/svg/mx.svg" alt="México" class="flags__img">
-        </div>
-        <div class="flags__item" data-language="en">
-            <img src="./img/svg/us.svg" alt="US" class="flags__img">
-        </div>
-    </div>
-</div>
-<div class="container">
-    <header class="head">
-        <div class="contentHeader textWithe">
-            <div class="headText">
-                <h1 id="title" data-section="Header" data-value="Name">Axel Nava, Game Developer</h1>
-            </div>
-        </div>
-    </header>
-    <div class="person">
-        <img src="./img/fall-guys-g152597559_1920.png" alt="Photo" id="personal">
-    </div>
-    <div class="about">
-        <div class="text">
-            <h2 data-section="Personal" data-value="AboutMeTitle">About me</h2>
-            <p id="aboutMe" data-section="Personal" data-value="AboutMe">
-                I'm a student game developer with 1 year experience on c# and Unity Engine.
-                I've been creating video games for school
-                I'm learning html, javaScript and css.
-            </p>
-        </div>
-        <div class="images" id="ContainerExampleImages">
-            <div class="imageExample">
-                <img src="img/Projects/Administrador%20de%20usuarios%20y%20creador%20de%20PDF's/ModificarUsuario.png"
-                     alt="Project Administrator" role="button" class="image">
-            </div>
-            <div class="imageExample">
-                <img src="img/Projects/Administrador%20de%20usuarios%20y%20creador%20de%20PDF's/Impresión2.png"
-                     alt="Project Administrator" role="button" class="image">
-            </div>
-            <div class="imageExample">
-                <img src="img/Projects/Compilador/Captura%20de%20pantalla_20230220_131721.png" alt="Compiler"
-                     role="button" class="image">
-            </div>
-        </div>
-        <div class="personal text">
-            <div class="title">
-                <h2 data-section="Skills" data-value="TitleSkill">Skills</h2>
-            </div>
-            <div id="skillIntro">
-                <p data-section="Skills" data-value="IntroSkill">
-                    I'm involved in different areas like:
-                </p>
-            </div>
-        </div>
-        <div class="SkillSection">
-            <div class="imagesAlone">
-                <div class="ContainerPortfolio text" id="webProject">
-                    <div class="infoSkill">
-                        <p data-section="Skills" data-value="ProjectWebTitle" class="titleProject">Web develop</p>
-                        <p data-section="Skills" data-value="ProjectWebDescription">Design a website with connection to
-                            MySQL in PHP. Design in JavaScript and HTML</p>
-                    </div>
-                    <img src="./img/php.png" alt="PHPImage" id="phpImage" role="button" class="image">
-                    <p>&nbsp;</p>
-                    <iframe src="https://www.youtube.com/embed/V41AbKV4HoA" title="YouTube video player" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            allowfullscreen></iframe>
-                </div>
-                <div class="ContainerPortfolio text" id="VideoGames">
-                    <div class="infoSkill">
-                        <p data-section="Skills" data-value="VideoGamesTitle" class="titleProject">Video games</p>
-                        <p data-section="Skills" data-value="VideoGamesDescription">Design games in Unity Engine with
-                            midi files and some mechanics in Unreal Engine 4</p>
-                    </div>
-                    <div class="contentMedia">
-                        <div id="firstRow">
-                            <img src="./img/unity.png" alt="Unit y" id="unityProgress" role="button" class="image">
-                            <p>&nbsp;</p>
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/xXFGAaOkKZ8"
-                                    title="YouTube video player" frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                    allowfullscreen></iframe>
-                        </div>
-                        <div class="videos">
-                            <iframe src="https://www.youtube.com/embed/dYhwRXj59HY" title="YouTube video player"
-                                    frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                    allowfullscreen></iframe>
-                            <p>&nbsp;</p>
-                            <iframe src="https://www.youtube.com/embed/Cn9pWNXfcMM" title="YouTube video player"
-                                    frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                    allowfullscreen></iframe>
 
-                        </div>
-                    </div>
-                </div>
-                <div class="ContainerPortfolio text" id="DesktopApp">
-                    <div class="infoSkill">
-                        <p data-section="Skills" data-value="DesktopTitle" class="titleProject">Desktop application</p>
-                        <p data-section="Skills" data-value="DesktopDescription">User administrator for generate Water
-                            Receives in PDF files, and manage users with automation
-                            of debts in database SQLite</p>
-                    </div>
-                    <img src="./img/Projects/Administrador%20de%20usuarios%20y%20creador%20de%20PDF's/Impresión1.png"
-                         alt="Administrator_Print" role="button" class="image">
-                </div>
-                <div class="ContainerPortfolio text" id="Languages">
-                    <div class="infoSkill">
-                        <p data-section="Skills" data-value="LanguagesTitle" class="titleProject">Languages</p>
-                        <div class="LanguagesInfo">
-                            <div class="language">
-                                <p data-section="Skills" data-value="LanguagesDescriptionSpanish">
-                                    Spanish:
-                                </p>
-                            </div>
-                            <div class="language">
-                                <p data-section="Skills" data-value="LanguagesDescriptionEnglish">
-                                    English:
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<nav id="navigation-mobile">
+    <button type="button" id="change-language-button">Cambiar el idioma</button>
+    <label for="i-r-c-s">🌓︎</label> <input type="checkbox" name="color-scheme" id="i-r-c-s">
+</nav>
+<header class="head wrapper-typewriting" id="vim">
+    <div id="help">
+        <span id="help-text">Press <samp><kbd>:</kbd></samp> for enter to command mode</span><br>
+        <span id="commands-available">The commands available are</span>
+        <ul>
+            <li><i>set language spanish</i></li>
+            <li><i>set language english</i></li>
+            <li><i>set dark mode</i></li>
+            <li><i>set light mode</i></li>
+            <li><i>download cv</i></li>
+        </ul>
+    </div>
+    <h1 id="title" data-section="Header" data-value="Name" data-title="Axel Nava, FullStack Developer"></h1>
+    <div id="vim-airline">
+        <div class="left">
+            <div class="cell-airline" id="mode-vim"><span class="icon-vim"></span><span id="mode">Normal</span></div>
+            <div class="cell-airline"><span class="icon-vim"></span><span>index.html</span></div>
+            <div class="cell-airline"><span class="icon-vim"></span><span>porfolio</span></div>
+        </div>
+        <div class="right">
+            <div class="cell-airline"><span class="icon-vim"> </span><span>Top</span><span>1:1</span></div>
+            <div class="cell-airline" id="time-cell"><span class="icon-vim"></span><span id="time">16:46</span></div>
         </div>
     </div>
+    <div class="vim-command-text">
+        <span data-default-text="vim" id="text-vim"></span>
+    </div>
+</header>
+<div class="wrapper">
+    <section class="person grid-span-2">
+        <img src="./img/fall-guys-g152597559_1920.png" alt="Photo" id="personal" loading="lazy">
+    </section>
+
+    <section class="grid-span-3">
+        <span class="title-prompt"><img src="icons/git-branch-lighter.svg" alt="i" loading="lazy"><span
+                class="git-branch">Experience</span></span>
+        <p id="experience-p">Working as freelance for almost 2 years at <i>Comercializate</i> and
+            <i>RCPerformanceDiesel</i></p>
+    </section>
+    <section class="grid-span-2">
+        <h2 data-section="Personal" data-value="AboutMeTitle">About me</h2>
+        <p id="aboutMe" data-section="Personal" data-value="AboutMe">FullStack Developer and
+            Video-game engineering</p>
+    </section>
+    <section id="knowledge" class="grid-span-3 grid-span-rows-2">
+        <h3 style="margin-bottom: 0">Knowledge</h3>
+        <article>
+            <h4>Programming language</h4>
+            <ul>
+                <li>PHP</li>
+                <li>C#</li>
+                <li>JavaScript</li>
+            </ul>
+        </article>
+        <article>
+            <h4>Others</h4>
+            <ul>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>SQL -> MySql, SQLite</li>
+            </ul>
+        </article>
+    </section>
+    <section class="grid-span-2">
+        <h3>Speaking language skills</h3>
+        <ul>
+            <li>Spanish</li>
+            <li>English</li>
+        </ul>
+    </section>
+    <section class="grid-span-2">
+        <h3>Social Media</h3>
+        <ul>
+            <li><a target="_blank" href="https://www.linkedin.com/in/axel-nava-516809289/">LinkedIn</a></li>
+            <li><a target="_blank" href="">Github</a></li>
+        </ul>
+    </section>
+    <section class="grid-span-4">
+        <!--        TODO: Fill this item-->
+    </section>
+    <!--    <section class="grid-span-4">-->
+    <!--        <h2>Main Projects</h2>-->
+    <!--    </section>-->
+    <section class="grid-span-3">
+        <h3>Compiler</h3>
+        <img src="img/Projects/Compilador/Captura%20de%20pantalla_20230220_131721.png" alt="Compiler"
+             role="button" class="image" loading="lazy">
+    </section>
+    <section class="grid-span-2">
+        <h3>Web Development</h3>
+    </section>
+    <section class="grid-span-4">
+        <h3>Desktop application</h3>
+        <img src="img/Projects/Administrador%20de%20usuarios%20y%20creador%20de%20PDF's/Impresión2.png"
+             alt="Project Administrator" role="button" class="image" loading="lazy">
+        <p class="info-project">User administrator for generate Water
+            Receives in PDF files, and manage users with automation
+            of debts in database SQLite</p>
+    </section>
+    <section class="grid-span-3">
+        <h3>Pianista desktop</h3>
+        <p data-section="Skills" data-value="VideoGamesDescription">Design games in Unity Engine with
+            midi files and some mechanics in Unreal Engine 4</p>
+
+        <lite-youtube videoid="Cn9pWNXfcMM" videotitle="Proyecto pianista"></lite-youtube>
+    </section>
+    <!--        <div class="infoSkill">-->
+    <!--            <p data-section="Skills" data-value="DesktopDescription">User administrator for generate Water-->
+    <!--                Receives in PDF files, and manage users with automation-->
+    <!--                of debts in database SQLite</p>-->
+    <!--        </div>-->
 </div>
 </body>
 </html>
