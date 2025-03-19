@@ -12,7 +12,29 @@ let containerTime = document.querySelector("#time-cell");
 timeCell.innerText = new Date().toLocaleTimeString(['es-MX', 'en-US', "es-ES", "es-PE"]
     , {timeStyle: "short"});
 
-// console.log(document.)
+const lightPreference = window.matchMedia("(prefers-color-scheme: light)");
+lightPreference.addEventListener('change', e => {
+    let isLightPreference = e.matches;
+    const oldSource = 'icons/git-branch-lighter.svg';
+    let images = document.querySelectorAll(".title-prompt > .git-branch");
+    let phpImage = document.querySelector("#php-id");
+    if (isLightPreference) {
+        const newSource = 'icons/git-branch.svg';
+        phpImage.src = 'icons/Php_light.svg';
+        images.forEach(image => {
+            image.src = newSource
+        })
+    } else {
+        let isLight = images[0].src.includes('icons/git-branch.svg')
+        phpImage.src = 'icons/Php_dark.svg';
+        if(isLight) {
+            images.forEach(image => {
+                image.src = oldSource
+            })
+        }
+    }
+})
+
 setInterval(() => {
     timeCell.innerText = new Date().toLocaleTimeString(['es-MX', 'en-US', "es-ES", "es-PE"]
         , {timeStyle: "short"});
@@ -176,6 +198,7 @@ function validateAndExecuteCommand(sequence) {
 }
 
 let modeElement = document.getElementById('mode')
+
 function setCommandMode(elements) {
     modeElement.innerText = 'Command';
     elements.forEach(element => {

@@ -36,7 +36,6 @@
 
 :root {
     --fs-sm: clamp(0.3em, 15vw - 5em, 1rem);
-    --background-color: rgb(15, 15, 15);
 
     /*Colors for vim editor, taken from https://unpkg.com/@catppuccin/palette@1.7.1/css/catppuccin.css*/
     --ctp-latte-rosewater: #dc8a78;
@@ -200,6 +199,9 @@
     /*Variables for body content*/
     --color-text: var(--ctp-mocha-subtext0);
     --color-header: var(--ctp-mocha-text);
+    --bg-color: var(--ctp-mocha-base);
+    --background-color: rgb(15, 15, 15);
+    color-scheme: dark light;
 }
 
 img {
@@ -235,7 +237,6 @@ nav > img {
 }
 
 #vim {
-    --bg-color: var(--ctp-mocha-base);
     --color-text-vim: var(--ctp-mocha-text);
     --bg-color-vim-airline: hsl(var(--ctp-mocha-surface0-hsl));
 }
@@ -244,6 +245,7 @@ nav > img {
     :root {
         --color-header: var(--ctp-latte-text);
         --color-text: hsl(from hsl(var(--ctp-latte-text-hsl)) h s 25);
+        --bg-color: var(--ctp-latte-base);
     }
 
     body {
@@ -251,7 +253,6 @@ nav > img {
     }
 
     #vim {
-        --bg-color: var(--ctp-latte-base);
         --color-text-vim: var(--ctp-latte-text);
         --bg-color-vim-airline: var(--ctp-latte-surface0);
     }
@@ -272,6 +273,10 @@ nav > img {
 
         .right > :last-child {
             --bg-color-element: var(--ctp-latte-yellow);
+        }
+
+        .projects > img:nth-child(3) {
+            filter: brightness(40%);
         }
     }
 }
@@ -436,7 +441,7 @@ nav > img {
     }
 
     .wrapper > * {
-        background-color: rgba(31, 31, 31, 0.55);
+        background-color: var(--bg-color);
         padding-inline: 0.8em;
         backdrop-filter: blur(8em);
         border-width: 2px;
@@ -444,7 +449,6 @@ nav > img {
         border-color: var(--ctp-mocha-overlay1);
         border-radius: 3px;
         transition: border-color ease-in-out .15s;
-        /*container-type: inline-size;*/
     }
 
     .wrapper > *:hover {
@@ -470,18 +474,46 @@ nav > img {
     }
 
     .title-prompt {
-        display: grid;
+        display: flex;
+        flex-wrap: wrap;
         color: var(--color-header);
         margin-block: 1em;
         font-weight: bold;
-        grid-auto-flow: column;
         align-items: center;
-        justify-content: start;
         gap: 0.5em;
+        font-size: 1.3rem;
+        text-wrap: balance;
+    }
+
+    .title-prompt > img {
+        width: 1.4em;
+        height: 1.4em;
     }
 
     .git-branch {
-        --color-text: var(--ctp-mocha-maroon);
+        --color-text: light-dark(var(--ctp-latte-maroon), var(--ctp-mocha-maroon));
+    }
+
+    .languages {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, 5em);
+        gap: 0.5em;
+        justify-items: start;
+    }
+
+    .language-element {
+        display: grid;
+        gap: 0.5em;
+        font-size: var(--fs-sm);
+        justify-items: center;
+    }
+
+    .language-element > img {
+        width: 3em;
+    }
+
+    .container-language {
+        padding-bottom: 2em;
     }
 
     @media (min-width: 60em) {
@@ -510,7 +542,30 @@ nav > img {
             grid-column: span 4;
         }
 
-        .grid
+        .grid-span-full-row {
+            grid-column: 1 / -1;
+        }
+
+        #knowledge {
+            grid-column: 1 / -3;
+        }
+
+        .container-language {
+            display: grid;
+            grid-auto-flow: column;
+        }
+
+        .container-language > :nth-child(2) {
+            grid-row-start: 2;
+        }
+
+        .container-language > :nth-child(3) {
+            grid-column-start: 2;
+        }
+
+        .container-language > :nth-child(4) {
+            grid-row-start: 3;
+        }
     }
 }
 

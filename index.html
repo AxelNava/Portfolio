@@ -2,7 +2,6 @@
 <html lang="es">
 <head>
     <meta charset="utf-8">
-    <meta name="color-scheme" content="light dark">
     <link rel="stylesheet" href="Styles/Styles.css">
     <meta name="viewport" content="width=device-width; initial-scale=1.0;">
     <script type="module" src="https://cdn.jsdelivr.net/npm/@justinribeiro/lite-youtube@1/lite-youtube.min.js"></script>
@@ -49,83 +48,153 @@
     </section>
 
     <section class="grid-span-3">
-        <span class="title-prompt"><img src="icons/git-branch-lighter.svg" alt="i" loading="lazy"><span
+        <span class="title-prompt"><img class="git-branch" src="icons/git-branch-lighter.svg" alt="i"
+                                        loading="lazy"><span
                 class="git-branch">Experience</span></span>
         <p id="experience-p">Working as freelance for almost 2 years at <i>Comercializate</i> and
             <i>RCPerformanceDiesel</i></p>
     </section>
     <section class="grid-span-2">
-        <h2 data-section="Personal" data-value="AboutMeTitle">About me</h2>
-        <p id="aboutMe" data-section="Personal" data-value="AboutMe">FullStack Developer and
-            Video-game engineering</p>
+        <span class="title-prompt"><img class="git-branch" src="icons/git-branch-lighter.svg" alt="i"
+                                        loading="lazy"><span
+                class="git-branch" data-section="Personal" data-value="AboutMeTitle">About me</span></span>
+        <p>VideoGame engineering with experience with web development as FullStack developer and
+            developing a compiler.</p>
+        <p>I like the compiler stuff, web development, playing piano and try new things.</p>
     </section>
-    <section id="knowledge" class="grid-span-3 grid-span-rows-2">
-        <h3 style="margin-bottom: 0">Knowledge</h3>
-        <article>
-            <h4>Programming language</h4>
-            <ul>
-                <li>PHP</li>
-                <li>C#</li>
-                <li>JavaScript</li>
-            </ul>
-        </article>
-        <article>
-            <h4>Others</h4>
-            <ul>
-                <li>HTML</li>
-                <li>CSS</li>
-                <li>SQL -> MySql, SQLite</li>
-            </ul>
-        </article>
+    <section id="knowledge" class="grid-span-rows-2" style="padding-bottom: 1em;">
+        <span class="title-prompt"><img class="git-branch" src="icons/git-branch-lighter.svg" alt="i"><span
+                class="git-branch">Knowledge</span></span>
+        <div class="container-language">
+            <article>
+                <h4>Programming language</h4>
+                <div class="languages">
+                    <div class="language-element">
+                        <img id="php-id" src="icons/Php_dark.svg" alt="php" loading="lazy">
+                        <span>PHP</span>
+                    </div>
+                    <div class="language-element">
+                        <img src="icons/csharp.svg" alt="c#" loading="lazy">
+                        <span>C#</span>
+                    </div>
+                    <div class="language-element">
+                        <img src="/icons/javascript.svg" alt="js" loading="lazy">
+                        <span>JavaScript</span>
+                    </div>
+                </div>
+            </article>
+            <article >
+                <h4>Web</h4>
+                <div class="languages">
+                    <div class="language-element">
+                        <img src="icons/html5.svg" alt="html" loading="lazy">
+                        <span>HTML</span>
+                    </div>
+                    <div class="language-element">
+                        <img src="icons/css_old.svg" alt="css" loading="lazy">
+                        <span>CSS</span></div>
+
+                </div>
+            </article>
+            <article>
+                <h4>Database</h4>
+                <div class="languages">
+                    <div class="language-element">
+                        <img src="icons/mysql.svg" alt="mysql" loading="lazy">
+                        <span>MySQL</span>
+                    </div>
+                    <div class="language-element">
+                        <img src="icons/sqlite.svg" alt="sqlite" loading="lazy">
+                        <span>SQLite</span>
+                    </div>
+                </div>
+            </article>
+            <article >
+                <h4>Technologies</h4>
+                <div class="languages">
+                    <div class="language-element">
+                        <img src="icons/laravel.svg" alt="mysql" loading="lazy">
+                        <span>Laravel</span>
+                    </div>
+                    <div class="language-element">
+                        <img src="icons/Unity_dark.svg" alt="mysql" loading="lazy">
+                        <span>Unity</span>
+                    </div>
+                    <div class="language-element">
+                        <img src="icons/git.svg" alt="mysql" loading="lazy">
+                        <span>Git</span>
+                    </div>
+                    <div class="language-element">
+                        <img src="icons/vim.svg" alt="mysql" loading="lazy">
+                        <span>VIM</span>
+                    </div>
+                    <div class="language-element">
+                        <img src="icons/linux.svg" alt="mysql" loading="lazy">
+                        <span>Linux</span>
+                    </div>
+                </div>
+            </article>
+            <article>
+                <h4>Learning</h4>
+                <div class="languages">
+                    <div class="language-element">
+                        <img src="icons/Rust_dark.svg" alt="mysql" loading="lazy">
+                        <span>Rust</span>
+                    </div>
+                </div>
+            </article>
+        </div>
     </section>
-    <section class="grid-span-2">
-        <h3>Speaking language skills</h3>
+    <section class="grid-span-2"><span class="title-prompt">
+        <img class="git-branch" src="icons/git-branch-lighter.svg"
+             alt="i" loading="lazy"><span class="git-branch">Speaking language skills</span></span>
         <ul>
             <li>Spanish</li>
             <li>English</li>
         </ul>
     </section>
-    <section class="grid-span-2">
-        <h3>Social Media</h3>
+    <section class="grid-span-2"><span class="title-prompt"><img class="git-branch" src="icons/git-branch-lighter.svg"
+                                                                 alt="i" loading="lazy"><span class="git-branch">Social Media</span></span>
         <ul>
             <li><a target="_blank" href="https://www.linkedin.com/in/axel-nava-516809289/">LinkedIn</a></li>
             <li><a target="_blank" href="">Github</a></li>
         </ul>
     </section>
-    <section class="grid-span-4">
-        <!--        TODO: Fill this item-->
-    </section>
-    <!--    <section class="grid-span-4">-->
-    <!--        <h2>Main Projects</h2>-->
-    <!--    </section>-->
-    <section class="grid-span-3">
-        <h3>Compiler</h3>
-        <img src="img/Projects/Compilador/Captura%20de%20pantalla_20230220_131721.png" alt="Compiler"
-             role="button" class="image" loading="lazy">
-    </section>
-    <section class="grid-span-2">
-        <h3>Web Development</h3>
-    </section>
-    <section class="grid-span-4">
-        <h3>Desktop application</h3>
+    <section class="grid-span-4"><span class="title-prompt projects"><img class="git-branch"
+                                                                          src="icons/git-branch-lighter.svg" alt="i"
+                                                                          loading="lazy"><span class="project-prompt">project</span><img
+            src="icons/git-folder.svg" alt="folder" loading="lazy"><span class="git-branch">Compiler</span></span> <img
+            src="img/Projects/Compilador/Captura%20de%20pantalla_20230220_131721.png" alt="Compiler" role="button"
+            class="image" loading="lazy"></section>
+    <section class="grid-span-3"><span class="title-prompt projects"><img class="git-branch"
+                                                                          src="icons/git-branch-lighter.svg" alt="i"
+                                                                          loading="lazy"><span class="project-prompt">project</span><img
+            src="icons/git-folder.svg" alt="folder" loading="lazy"><span
+            class="git-branch">Desktop application</span></span>
         <img src="img/Projects/Administrador%20de%20usuarios%20y%20creador%20de%20PDF's/Impresión2.png"
              alt="Project Administrator" role="button" class="image" loading="lazy">
         <p class="info-project">User administrator for generate Water
             Receives in PDF files, and manage users with automation
             of debts in database SQLite</p>
     </section>
+    <section class="grid-span-4">
+        <span class="title-prompt projects"><img class="git-branch" src="icons/git-branch-lighter.svg" alt="i"
+                                                 loading="lazy"><span
+                class="project-prompt">project</span><img src="icons/git-folder.svg" alt="folder" loading="lazy"><span
+                class="git-branch">Web development</span></span>
+    </section>
+
     <section class="grid-span-3">
-        <h3>Pianista desktop</h3>
+        <span class="title-prompt projects"><img class="git-branch" src="icons/git-branch-lighter.svg" alt="i"
+                                                 loading="lazy"><span
+                class="project-prompt">project</span><img src="icons/git-folder.svg" alt="folder"
+                                                          loading="lazy"><span
+                class="git-branch">Pianista Desktop</span></span>
         <p data-section="Skills" data-value="VideoGamesDescription">Design games in Unity Engine with
             midi files and some mechanics in Unreal Engine 4</p>
 
         <lite-youtube videoid="Cn9pWNXfcMM" videotitle="Proyecto pianista"></lite-youtube>
     </section>
-    <!--        <div class="infoSkill">-->
-    <!--            <p data-section="Skills" data-value="DesktopDescription">User administrator for generate Water-->
-    <!--                Receives in PDF files, and manage users with automation-->
-    <!--                of debts in database SQLite</p>-->
-    <!--        </div>-->
 </div>
 </body>
 </html>
