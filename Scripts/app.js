@@ -9,6 +9,151 @@ let counter = 0;
 let modeCell = document.querySelector("#mode-vim");
 let timeCell = document.querySelector("#time");
 let containerTime = document.querySelector("#time-cell");
+let navigations = document.querySelectorAll(".navigation");
+navigations.forEach(navigation => {
+    let imageSlider = navigation.parentElement.querySelector(".slider")
+    let images = imageSlider.querySelectorAll("img")
+    let anchors = navigation.querySelectorAll("a")
+    let numberAnchors = anchors.length;
+    let currentIndex = 0;
+    let isDragging = false
+    let startPosition = 0;
+    let previousIndex = 0;
+    let touchStartX = 0
+    let touchEndX = 0
+    let isSwiping = false;
+
+    anchors[currentIndex].classList.add("selected-navigation");
+
+    anchors.forEach((anchor, index) => {
+        anchor.addEventListener("click", (e) => {
+            if (images[index]) {
+                currentIndex = goToImage(anchors, images, index, navigation);
+            }
+        })
+    })
+
+    imageSlider.addEventListener("mousedown", (e) => {
+        isDragging = true;
+        startPosition = e.clientX;
+        previousIndex = currentIndex
+        isSwiping = false
+    })
+    imageSlider.addEventListener("mousemove", (e) => {
+        if (!isDragging) return;
+        let deltaX = e.clientX - previousIndex;
+        if (Math.abs(deltaX) > 10) {
+            isSwiping = true;
+            console.log(isSwiping)
+        }
+    })
+    const resetDrag = (e) => {
+        if (!isDragging) return;
+        isDragging = false;
+
+        let movedSlides = Math.abs((e.clientX - startPosition) / imageSlider.offsetWidth)
+        //Mínimo para poder desplazarse
+        let limitSwipe = 0.3
+        if (isSwiping && movedSlides > limitSwipe) {
+            //Arrastra a la izquierda
+            if (e.clientX < startPosition) {
+                currentIndex = goToImage(anchors, images, currentIndex - 1)
+            }
+            //Arrastra a la derecha
+            if (e.clientX > startPosition) {
+                currentIndex = goToImage(anchors, images, currentIndex + 1)
+            }
+        }
+        startPosition = 0;
+        isSwiping = false;
+    }
+    imageSlider.addEventListener("mouseup", resetDrag)
+    imageSlider.addEventListener("mouseleave", resetDrag)
+    imageSlider.addEventListener("wheel", (e) => {
+        let targetIndex;
+        console.log(e)
+        let isTrackpad = false;
+        if (e.wheelDeltaY) {
+            if (e.wheelDeltaY === (e.deltaY * -3)) {
+                isTrackpad = true;
+            }
+        } else if (e.deltaMode === 0) {
+            isTrackpad = true;
+        }
+        //Va hacia abajo, entonces desliza hacia la derecha
+        if (e.deltaY > 0 || (e.deltaX > 0)) {
+            targetIndex = currentIndex + 1
+        } else if (e.deltaY < 0 || (e.deltaX < 0)) {
+            //Va hacia arriba, entonces desliza hacia la izquierda
+            targetIndex = currentIndex - 1
+        } else {
+            return
+        }
+        e.preventDefault()
+        currentIndex = goToImage(anchors, images, targetIndex, navigation, isTrackpad)
+    })
+
+    // Touch events para mobiles
+    imageSlider.addEventListener('touchstart', (e) => {
+        touchStartX = e.touches[0].clientX;
+        touchEndX = touchStartX; // Inicializar touchEndX
+        isDragging = true; // Considerar el toque como un inicio de arrastre
+        isSwiping = false;
+    });
+
+    imageSlider.addEventListener('touchmove', (e) => {
+        if (!isDragging) return;
+        touchEndX = e.touches[0].clientX;
+        const touchDiff = touchEndX - touchStartX;
+        if (Math.abs(touchDiff) > 10) {
+            isSwiping = true;
+        }
+    });
+
+    imageSlider.addEventListener('touchend', (e) => {
+        if (!isDragging) return;
+        isDragging = false;
+        const touchDiff = touchEndX - touchStartX;
+        const sensitivity = 10; // Ajusta según sea necesario
+
+        if (isSwiping && Math.abs(touchDiff) > sensitivity) {
+            if (touchDiff < 0) {
+                currentIndex = goToImage(anchors, images, currentIndex + 1, navigation);
+            } else {
+                currentIndex = goToImage(anchors, images, currentIndex - 1, navigation);
+            }
+        }
+        isSwiping = false;
+        resetDrag(e)
+    });
+})
+
+function goToImage(anchors, images, index, navigation, isTrackpad = false) {
+    if (index < 0) {
+        index = 0;
+    } else if (index > images.length - 1) {
+        index = images.length - 1;
+    }
+    let targetImage = images[index];
+    let targetAnchor = anchors[index];
+    if (isTrackpad) {
+        if (targetAnchor) {
+            changeSelectedAnchor(targetAnchor, navigation)
+        }
+    }
+    if (targetImage) {
+        targetImage.scrollIntoView({inline: "start"})
+        changeSelectedAnchor(targetAnchor, navigation)
+    }
+    return index;
+}
+
+function changeSelectedAnchor(elementSelected, navigationElement) {
+    let selectedBefore = navigationElement.querySelector(".selected-navigation");
+    selectedBefore.classList.remove("selected-navigation");
+    elementSelected.classList.add("selected-navigation")
+}
+
 timeCell.innerText = new Date().toLocaleTimeString(['es-MX', 'en-US', "es-ES", "es-PE"]
     , {timeStyle: "short"});
 
@@ -27,12 +172,26 @@ lightPreference.addEventListener('change', e => {
     } else {
         let isLight = images[0].src.includes('icons/git-branch.svg')
         phpImage.src = 'icons/Php_dark.svg';
-        if(isLight) {
+        if (isLight) {
             images.forEach(image => {
                 image.src = oldSource
             })
         }
     }
+})
+
+let buttonsSections = document.querySelectorAll(".button-show-modal");
+let buttonsCloseDialog = document.querySelectorAll(".button-close-modal");
+buttonsCloseDialog.forEach(button => {
+    button.addEventListener("click", e => {
+        e.stopPropagation()
+    })
+})
+buttonsSections.forEach(button => {
+    button.addEventListener('click', (e) => {
+        let dialog = e.target.parentElement.querySelector('dialog');
+        dialog.showModal()
+    })
 })
 
 setInterval(() => {
@@ -108,7 +267,6 @@ let messageCommand = ''
 
 
 function setLightMode() {
-
     console.log('funciona light')
 }
 

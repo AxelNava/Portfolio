@@ -36,6 +36,7 @@
 
 :root {
     --fs-sm: clamp(0.3em, 15vw - 5em, 1rem);
+    --fs-md: clamp(0.7em, 20vw - 5em, 1.1rem);
 
     /*Colors for vim editor, taken from https://unpkg.com/@catppuccin/palette@1.7.1/css/catppuccin.css*/
     --ctp-latte-rosewater: #dc8a78;
@@ -278,6 +279,8 @@ nav > img {
         .projects > img:nth-child(3) {
             filter: brightness(40%);
         }
+
+
     }
 }
 
@@ -326,6 +329,11 @@ nav > img {
 #vim-airline > * {
     display: grid;
     grid-auto-flow: column;
+}
+
+.navigation > a:hover {
+    cursor: pointer;
+    opacity: 1;
 }
 
 @layer base {
@@ -448,15 +456,46 @@ nav > img {
         border-style: solid;
         border-color: var(--ctp-mocha-overlay1);
         border-radius: 3px;
+    }
+
+    .border-project {
+        padding-bottom: 1em;
+        display: flex;
+        flex-direction: column;
+    }
+
+    button {
+        font-family: FiraCode, system-ui;
+        background-color: transparent;
+        border-style: solid;
+        border-radius: 3px;
+        border-color: transparent;
+        padding: 1em;
+        cursor: pointer;
+    }
+
+    .border-project > .button-show-modal {
+        content: 'Click to show more >>';
+        font-family: 'FiraCode', system-ui;
+        color: var(--color-text);
+        font-size: var(--fs-sm);
+        opacity: 0.8;
+        align-self: end;
+        display: inline-block;
+        margin-top: auto;
         transition: border-color ease-in-out .15s;
     }
 
-    .wrapper > *:hover {
-        border-color: var(--ctp-mocha-blue);
+    .button-show-modal:hover {
+        border-color: light-dark(var(--ctp-latte-green), var(--ctp-mocha-green));
     }
 
     .wrapper p {
         max-width: 60ch;
+    }
+
+    .wrapper > section > p {
+        font-size: var(--fs-md);
     }
 
     .grid-util {
@@ -506,6 +545,7 @@ nav > img {
         gap: 0.5em;
         font-size: var(--fs-sm);
         justify-items: center;
+        align-items: end;
     }
 
     .language-element > img {
@@ -515,6 +555,92 @@ nav > img {
     .container-language {
         padding-bottom: 2em;
     }
+
+    dialog::backdrop {
+        background-color: gray;
+        opacity: 0.5;
+    }
+
+    .info-modal {
+        width: 90dvw;
+        height: 80dvh;
+    }
+
+    .info-modal {
+        font-size: var(--fs-sm);
+    }
+
+    .info-modal > form {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    .command-prompt {
+        --color-text: light-dark(var(--ctp-latte-green), var(--ctp-mocha-green));
+        position: relative;
+        padding-block: 0.5em;
+    }
+
+    .command-prompt ::after {
+        --animation-blink-duration: 1s;
+        content: "\2581";
+        position: absolute;
+        z-index: 2;
+        animation-name: blink;
+        animation-duration: var(--animation-blink-duration);
+        animation-timing-function: step-end;
+        animation-iteration-count: infinite;
+        opacity: 1;
+        right: 0;
+    }
+
+    .grid-modal {
+        display: grid;
+        gap: 1em;
+    }
+
+    .carrousel {
+        position: relative;
+    }
+
+    .slider {
+        display: flex;
+        aspect-ratio: 16/9;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        scrollbar-width: none;
+    }
+
+    .slider > img {
+        flex: 1 0 100%;
+        object-fit: contain;
+        scroll-snap-align: start;
+    }
+
+    .navigation {
+        display: flex;
+        position: absolute;
+        bottom: 0.6rem;
+        inset-inline: 50%;
+        column-gap: 1em;
+        z-index: 2;
+    }
+
+    .navigation > a {
+        min-width: 0.5em;
+        height: 0.5em;
+        padding: 0.4em;
+        border-radius: 50%;
+        background-color: light-dark(var(--ctp-latte-text), var(--ctp-mocha-text));
+        transition: opacity ease-in-out 0.2s;
+    }
+
+    .navigation > .selected-navigation {
+        background-color: light-dark(var(--ctp-latte-rosewater), var(--ctp-mocha-rosewater));
+    }
+
 
     @media (min-width: 60em) {
 
@@ -565,6 +691,10 @@ nav > img {
 
         .container-language > :nth-child(4) {
             grid-row-start: 3;
+        }
+
+        .grid-modal {
+            grid-template-columns: 70% 1fr;
         }
     }
 }
