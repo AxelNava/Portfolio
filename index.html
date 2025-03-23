@@ -2,31 +2,34 @@
 <html lang="es">
 <head>
     <meta charset="utf-8">
+    <title data-section="Header" data-value="Title">Portafolio</title>
     <link rel="stylesheet" href="Styles/Styles.css">
     <meta name="viewport" content="width=device-width; initial-scale=1.0;">
     <script type="module" src="https://cdn.jsdelivr.net/npm/@justinribeiro/lite-youtube@1/lite-youtube.min.js"></script>
     <script type="module" src="./Scripts/app.js"></script>
-    <title data-section="Header" data-value="Title">Portfolio</title>
 </head>
-<body>
-
-<nav id="navigation-mobile">
-    <button type="button" id="change-language-button">Cambiar el idioma</button>
-    <label for="i-r-c-s">🌓︎</label> <input type="checkbox" name="color-scheme" id="i-r-c-s">
-</nav>
+<body data-language="es">
 <header class="head wrapper-typewriting" id="vim">
     <div id="help">
-        <span id="help-text">Press <samp><kbd>:</kbd></samp> for enter to command mode</span><br>
-        <span id="commands-available">The commands available are</span>
+        <span data-section="Header" data-value="HelpText" id="help-text">Presiona <samp><kbd>:</kbd></samp> para entrar al modo comando</span><br>
+        <span data-section="Header" data-value="CommandsAvailable"
+              id="commands-available">Los comandos disponibles son</span>
         <ul>
-            <li><i>set language spanish</i></li>
-            <li><i>set language english</i></li>
-            <li><i>set dark mode</i></li>
-            <li><i>set light mode</i></li>
-            <li><i>download cv</i></li>
+            <li>
+                <button class="button-command" type="button" id="set-language-spanish">
+                    <span><i>set language spanish >></i></span></button>
+            </li>
+            <li>
+                <button class="button-command" type="button" id="set-language-english">
+                    <span><i>set language english >></i></span></button>
+            </li>
+            <li><i><a id="download-anchor" class="button-command" href="Documents/Nava%20Palacios%20Axel%20-%20CV.pdf"
+                      target="_blank" download="">download cv >></a></i></li>
         </ul>
+        <span data-section="Header"
+              data-value="ButtonHelp">O presiona los botones de arriba para ejecutar el comando</span>
     </div>
-    <h1 id="title" data-section="Header" data-value="Name" data-title="Axel Nava, FullStack Developer"></h1>
+    <h1 id="title" data-section="Header" data-value="Name" data-title="Axel Nava, Desarrollador FullStack"></h1>
     <div id="vim-airline">
         <div class="left">
             <div class="cell-airline" id="mode-vim"><span class="icon-vim"></span><span id="mode">Normal</span></div>
@@ -42,37 +45,38 @@
         <span data-default-text="vim" id="text-vim"></span>
     </div>
 </header>
-<div class="wrapper">
+<main class="wrapper">
     <section class="person grid-span-2">
-        <img src="./img/fall-guys-g152597559_1920.png" alt="Photo" id="personal" loading="lazy">
+        <img src="img/me.webp" alt="personal-photo" id="personal" loading="lazy">
     </section>
     <section class="grid-span-3">
         <span class="title-prompt">
             <img class="git-branch" src="icons/git-branch-lighter.svg" alt="i"
                  loading="lazy">
-            <span class="git-branch">Experience</span>
+            <span class="git-branch" data-section="Personal" data-value="Experience">Experiencia</span>
         </span>
-        <p id="experience-p">Working as freelance for almost 2 years at <i>Comercializate</i> and
-            <i>RCPerformanceDiesel</i></p>
+        <p data-section="Personal" data-value="ExperienceP" id="experience-p">Trabajé como freelance por casí 2 años
+            en <i>Comercializate</i> y <i>RCPerformanceDiesel</i></p>
     </section>
     <section class="grid-span-2">
         <span class="title-prompt">
             <img class="git-branch" src="icons/git-branch-lighter.svg" alt="i"
                  loading="lazy">
-            <span class="git-branch" data-section="Personal" data-value="AboutMeTitle">About me</span>
+            <span class="git-branch" data-section="AboutMe" data-value="AboutMeTitle">Acerca de mí</span>
         </span>
-        <p>VideoGame engineering with experience with web development as FullStack developer and
-            developing a compiler.</p>
-        <p>I like the compiler stuff, web development, playing piano and try new things.</p>
+        <p data-section="AboutMe" data-value="First">Ingeniero en Videojuegos con experiencia en desarrollo web
+            como FullStack y desarrollo de un compilador</p>
+        <p data-section="AboutMe" data-value="Second">Me gusta el tema de compiladores, el desarrollo web,
+            tocar el piano y probar nuevas cosas</p>
     </section>
     <section id="knowledge" class="grid-span-rows-2" style="padding-bottom: 1em;">
         <span class="title-prompt">
             <img class="git-branch" src="icons/git-branch-lighter.svg" alt="i">
-            <span class="git-branch">Knowledge</span>
+            <span data-section="Knowledge" data-value="Title" class="git-branch">Habilidades</span>
         </span>
         <div class="container-language">
             <article>
-                <h4>Programming language</h4>
+                <h4 data-section="Knowledge" data-value="TitleProgramming">Lenguajes de programación</h4>
                 <div class="languages">
                     <div class="language-element">
                         <img id="php-id" src="icons/Php_dark.svg" alt="php" loading="lazy">
@@ -89,7 +93,7 @@
                 </div>
             </article>
             <article>
-                <h4>Web</h4>
+                <h4 data-section="Knowledge" data-value="Web">Desarrollo Web</h4>
                 <div class="languages">
                     <div class="language-element">
                         <img src="icons/html5.svg" alt="html" loading="lazy">
@@ -97,12 +101,12 @@
                     </div>
                     <div class="language-element">
                         <img src="icons/css_old.svg" alt="css" loading="lazy">
-                        <span>CSS</span></div>
-
+                        <span>CSS</span>
+                    </div>
                 </div>
             </article>
             <article>
-                <h4>Database</h4>
+                <h4 data-section="Knowledge" data-value="DataBase">Base de datos</h4>
                 <div class="languages">
                     <div class="language-element">
                         <img src="icons/mysql.svg" alt="mysql" loading="lazy">
@@ -115,7 +119,7 @@
                 </div>
             </article>
             <article>
-                <h4>Technologies</h4>
+                <h4 data-section="Knowledge" data-value="Technologies">Tecnologías</h4>
                 <div class="languages">
                     <div class="language-element">
                         <img src="icons/laravel.svg" alt="mysql" loading="lazy">
@@ -132,7 +136,7 @@
                 </div>
             </article>
             <article>
-                <h4>Learning</h4>
+                <h4 data-section="Knowledge" data-value="Learning">Aprendiendo</h4>
                 <div class="languages">
                     <div class="language-element">
                         <img src="icons/Rust_dark.svg" alt="rust" loading="lazy">
@@ -154,65 +158,173 @@
         <span class="title-prompt">
         <img class="git-branch" src="icons/git-branch-lighter.svg"
              alt="i" loading="lazy">
-        <span class="git-branch">Speaking language skills</span>
+        <span class="git-branch" data-section="Languages" data-value="Title">Idiomas</span>
         </span>
         <ul>
-            <li>Spanish</li>
-            <li>English</li>
+            <li data-section="Languages" data-value="Es">Español</li>
+            <li data-section="Languages" data-value="En">Inglés</li>
         </ul>
     </section>
     <section class="grid-span-2">
         <span class="title-prompt">
             <img class="git-branch" src="icons/git-branch-lighter.svg"
                  alt="i" loading="lazy">
-            <span class="git-branch">Social Media</span>
+            <span class="git-branch" data-section="SocialMedia" data-value="Title">Redes sociales</span>
         </span>
         <ul>
-            <li><a target="_blank" href="https://www.linkedin.com/in/axel-nava-516809289/">LinkedIn</a></li>
-            <li><a target="_blank" href="">Github</a></li>
+            <li><a class="list-icon" target="_blank" href="https://www.linkedin.com/in/axel-nava-516809289/">
+                <img class="icon"
+                     src="icons/linkedin.svg"
+                     alt="linkedIn"
+                     loading="lazy"> LinkedIn</a>
+            </li>
+            <li><a class="list-icon" target="_blank" href="https://github.com/AxelNava">
+                <img class="icon"
+                     src="icons/Github_dark.svg"
+                     alt="linkedIn"
+                     loading="lazy">
+                Github</a></li>
         </ul>
     </section>
-    <section class="border-project grid-span-4">
+    <section class="border-project grid-span-4" id="compiler">
         <span class="title-prompt projects">
             <img class="git-branch" src="icons/git-branch-lighter.svg" alt="i"
                  loading="lazy">
             <span class="project-prompt">project</span>
             <img src="icons/git-folder.svg" alt="folder" loading="lazy">
-            <span class="git-branch">Compiler</span>
+            <span class="git-branch" data-section="Projects" data-project="Compiler"
+                  data-value="Title">Compilador</span>
         </span>
-        <img src="img/Projects/Compilador/Captura%20de%20pantalla_20230220_131721.png"
-             alt="Compiler" role="button" class="image" loading="lazy">
-        <p>A compiler written in C#, the last develop fase was Intermediate Language</p>
-        <button class="button-show-modal">Click to show more >></button>
+        <img src="img/Projects/Compilador/Captura%20de%20pantalla_20230220_131721.webp"
+             alt="Compiler" class="image" loading="lazy">
+        <p data-section="Projects" data-project="Compiler" data-value="Resume">Un compilador para un pequeño conjunto de
+            instrucciones de C# escrito en C#, la última fase de desarrollo fue el código intermedio</p>
+        <button class="button-show-modal" data-section="Projects" data-project="Compiler" data-value="ButtonMore">Da
+            click para mostrar más >>
+        </button>
         <dialog class="info-modal">
-            <span>Showing project
-                <span>Executing command</span>
+            <span class="command-prompt">
+                <span data-section="Projects" data-project="Compiler"
+                      data-value="CommandValue">Mostrando proyecto...</span>
             </span>
+            <div class="grid-modal">
+                <div class="carrousel">
+                    <div class="slider">
+                        <img src="img/Projects/Compilador/Captura%20de%20pantalla%202025-03-21%20110645.webp"
+                             alt="compilador-muestra" loading="lazy">
+                        <img src="img/Projects/Compilador/Captura%20de%20pantalla_20230220_131721.webp"
+                             alt="compilador-muestra" loading="lazy">
+                        <img src="img/Projects/Compilador/Captura%20de%20pantalla%202025-03-21%20112732.webp"
+                             alt="compilador-muestra" loading="lazy">
+                        <img src="img/Projects/Compilador/Captura%20de%20pantalla%202025-03-21%20114041.webp"
+                             alt="compilador-muestra" loading="lazy">
+                        <img src="img/Projects/Compilador/Captura%20de%20pantalla%202025-03-21%20114116.webp"
+                             alt="compilador-muestra" loading="lazy">
+                    </div>
+                    <nav class="navigation">
+                        <a class=""></a>
+                        <a class=""></a>
+                        <a class=""></a>
+                        <a class=""></a>
+                        <a class=""></a>
+                    </nav>
+                </div>
+                <div>
+                    <p class="title-desc" data-section="Projects" data-project="Compiler" data-value="TitleDescription">
+                        Características principales</p>
+                    <ul>
+                        <li data-section="Projects" data-project="Compiler" data-value="List1">Implementación de
+                            analizador léxico propio
+                        </li>
+                        <li data-section="Projects" data-project="Compiler" data-value="List2">Uso del algoritmo LR(1)
+                            para el analizador sintáctico
+                        </li>
+                        <li data-section="Projects" data-project="Compiler" data-value="List3">Implementación propia del
+                            analizador semántico
+                        </li>
+                        <li data-section="Projects" data-project="Compiler" data-value="List4">Generación de
+                            implementación propia del código intermedio usando código de 3 direcciones
+                        </li>
+                    </ul>
+                    <p data-section="Projects" data-project="Compiler" data-value="Description1">Este compilador puede
+                        generar el código intermedio dado el código fuente, devuelve los errores y evalúa operaciones
+                        matemáticas que puedan ser evaluadas usando notación prefija. Si el código fuente dado es
+                        válido, el programa crea un archivo de texto con el código intermedio</p>
+                </div>
+            </div>
             <form method="dialog">
-                <button class="button-close-modal">Close</button>
+                <button class="button-close-modal" data-section="Projects" data-project="Compiler"
+                        data-value="ButtonClose">Cerrar
+                </button>
             </form>
         </dialog>
     </section>
-    <section class="border-project grid-span-3">
+    <section class="border-project grid-span-3" id="desktop">
         <span class="title-prompt projects">
             <img class="git-branch" src="icons/git-branch-lighter.svg" alt="i" loading="lazy">
             <span class="project-prompt">project</span>
             <img src="icons/git-folder.svg" alt="folder" loading="lazy">
-            <span class="git-branch">Desktop application</span>
+            <span class="git-branch" data-section="Projects" data-project="Desktop" data-value="Title">Aplicación de escritorio</span>
         </span>
-        <img src="img/Projects/Administrador%20de%20usuarios%20y%20creador%20de%20PDF's/Impresión2.png"
+        <img src="img/Projects/Administrador%20de%20usuarios%20y%20creador%20de%20PDF's/Impresión2.webp"
              alt="Project Administrator" role="button" class="image" loading="lazy">
-        <p class="info-project">User administrator for generate Water
-            Receives in PDF files, and manage users with automation
-            of debts in database SQLite</p>
-
-        <button class="button-show-modal">Click to show more >></button>
+        <p class="info-project" data-section="Projects" data-project="Desktop" data-value="Resume">Administración de
+            usuarios para generar recibos de agua en PDF, manejo de usuarios con deudas automatizadas usando SQLite como
+            base de datos</p>
+        <button class="button-show-modal" data-section="Projects" data-project="Desktop" data-value="ButtonMore">Da
+            click para mostrar más >>
+        </button>
         <dialog class="info-modal">
-            <span>Showing project
-                <span>Executing command</span>
+            <span class="command-prompt">
+                <span>Mostrando proyecto...</span>
             </span>
+            <div class="grid-modal">
+                <div class="carrousel">
+                    <div class="slider">
+                        <img src="img/Projects/Administrador%20de%20usuarios%20y%20creador%20de%20PDF's/Impresión1.webp"
+                             alt="init-action">
+                        <img src="img/Projects/Administrador%20de%20usuarios%20y%20creador%20de%20PDF's/Impresión2.webp"
+                             alt="init-action-2">
+                        <img src="img/Projects/Administrador%20de%20usuarios%20y%20creador%20de%20PDF's/Menú.webp"
+                             alt="menu-desktop-app">
+                        <img src="img/Projects/Administrador%20de%20usuarios%20y%20creador%20de%20PDF's/ModificarUsuario.webp"
+                             alt="edit-user-data">
+                        <img src="img/Projects/Administrador%20de%20usuarios%20y%20creador%20de%20PDF's/Subir%20información.webp"
+                             alt="upload-info-app">
+                    </div>
+                    <nav class="navigation">
+                        <a class=""></a>
+                        <a class=""></a>
+                        <a class=""></a>
+                        <a class=""></a>
+                        <a class=""></a>
+                    </nav>
+                </div>
+                <div>
+                    <p class="title-desc" data-section="Projects" data-project="Desktop" data-value="TitleDescription">
+                        Características principales</p>
+                    <ul>
+                        <li data-section="Projects" data-project="Desktop" data-value="List1">Administración de
+                            usuarios
+                        </li>
+                        <li data-section="Projects" data-project="Desktop" data-value="List2">Subida de archivos Excel y
+                            csv
+                        </li>
+                        <li data-section="Projects" data-project="Desktop" data-value="List3">Incremento mensual de
+                            deuda de usuarios
+                        </li>
+                        <li data-section="Projects" data-project="Desktop" data-value="List4">Generación de recibos en
+                            PDF
+                        </li>
+                    </ul>
+                    <p data-section="Projects" data-project="Desktop" data-value="Description1">Esta aplicación fue
+                        hecha como una propuesta para administrar los usuarios del servicio de agua, permite la carga de
+                        archivos Excel propios y CSV, genera el PDF con todos los recibos o solo un rango de usuarios e
+                        incremente mensualmente la deuda de cada uno de estos cuando la aplicación es abierta</p>
+                </div>
+            </div>
             <form method="dialog">
-                <button class="button-close-modal">Close</button>
+                <button class="button-close-modal">Cerrar</button>
             </form>
         </dialog>
     </section>
@@ -221,15 +333,18 @@
             <img class="git-branch" src="icons/git-branch-lighter.svg" alt="i" loading="lazy">
             <span class="project-prompt">project</span>
             <img src="icons/git-folder.svg" alt="folder" loading="lazy">
-            <span class="git-branch">Web development</span>
+            <span class="git-branch" data-section="Projects" data-project="Web"
+                  data-value="Title">Desarrollo Web</span>
         </span>
         <img src="img/Projects/comercializate/Captura%20desde%202025-03-19%2008-48-40.webp" alt="comercializate">
-        <p>A dashboard to manage the own user data, with capability of manage user data as administrator user</p>
-        <p>This kind of dashboard is replicate in RCPerformance web app, the capabilities are quite similar</p>
-        <button class="button-show-modal">Click to show more >></button>
+        <p data-section="Projects" data-project="Web" data-value="Resume1">Un panel de administración para que los
+            usuarios manejen sus propios datos, con la capacidad de que un administrador pueda manejar estos datos</p>
+        <p data-section="Projects" data-project="Web" data-value="Resume2">Este tipo de panel es replicado en la
+            aplicación de la web de RCPerformance, las capacidades de este son similares</p>
+        <button class="button-show-modal">Da click para mostrar más >></button>
         <dialog class="info-modal">
             <span class="command-prompt">
-                <span>Showing project...</span>
+                <span>Mostrando proyecto...</span>
             </span>
             <div class="grid-modal">
                 <div class="carrousel">
@@ -247,49 +362,81 @@
                     </nav>
                 </div>
                 <div>
-                    <p>Main features</p>
+                    <p class="title-desc">Características principales</p>
                     <ul>
-                        <li>~Responsive design</li>
-                        <li>User administration</li>
-                        <li>User own data management</li>
+                        <li data-section="Projects" data-project="Web" data-value="List1">~Diseño responsive</li>
+                        <li data-section="Projects" data-project="Web" data-value="List2">Administración de usuarios
+                        </li>
+                        <li data-section="Projects" data-project="Web" data-value="List3">Manejo de datos de usuario por
+                            ellos mismo
+                        </li>
                     </ul>
-                    <p>Base in this dashboard (style) I worked for RCPerformance, the features of this
-                        project are</p>
+                    <p data-section="Projects" data-project="Web" data-value="Description">En base a este panel(estilo)
+                        trabajé para RCPerformance, las características de este proyecto son</p>
                     <ul>
-                        <li>Responsive design</li>
-                        <li>User permission role system</li>
-                        <li>PDF and Excel generation</li>
-                        <li>Multi database operations</li>
-                        <li>Edit data manually and basic inventory management</li>
+                        <li data-section="Projects" data-project="Web" data-value="List4">Diseño responsivo</li>
+                        <li data-section="Projects" data-project="Web" data-value="List5">Sistema de permisos de usuario
+                            por roles
+                        </li>
+                        <li data-section="Projects" data-project="Web" data-value="List6">Generación de PDF's y
+                            Excel's
+                        </li>
+                        <li data-section="Projects" data-project="Web" data-value="List7">Operaciones con multiples base
+                            de datos
+                        </li>
+                        <li data-section="Projects" data-project="Web" data-value="List8">Edición manual de datos y
+                            administración básica de inventario
+                        </li>
                     </ul>
                 </div>
             </div>
             <form method="dialog">
-                <button class="button-close-modal">Close</button>
+                <button class="button-close-modal">Cerrar</button>
             </form>
         </dialog>
     </section>
-    <section class="border-project grid-span-3">
+    <section class="border-project grid-span-3" id="video-games">
         <span class="title-prompt projects">
             <img class="git-branch" src="icons/git-branch-lighter.svg" alt="i" loading="lazy">
             <span class="project-prompt">project</span>
             <img src="icons/git-folder.svg" alt="folder" loading="lazy">
-            <span class="git-branch">Pianista Desktop</span>
+            <span class="git-branch" data-section="Projects" data-project="VideoGames" data-value="Title">Pianista en Escritorio</span>
         </span>
-        <lite-youtube videoid="Cn9pWNXfcMM" videotitle="Proyecto pianista"></lite-youtube>
-        <p data-section="Skills" data-value="VideoGamesDescription">Design games in Unity Engine with
-            midi files and some mechanics in Unreal Engine 4</p>
-        <button class="button-show-modal">Click to show more >></button>
+        <lite-youtube videoid="Cn9pWNXfcMM" videotitle="Proyecto pianista" loading="lazy"></lite-youtube>
+        <p data-section="Projects" data-project="VideoGames" data-value="Resume">Pequeña adaptación del videojuego mobil
+            "Pianista" para escritorio, este juego es un intento de replicar las mecánicas usando archivos MIDI</p>
+        <button class="button-show-modal">Da click para mostrar más >></button>
         <dialog class="info-modal">
-            <span class="prompt-modal">Showing project
-                <span>Executing command</span>
+            <span class="command-prompt">
+                <span>Mostrando proyecto...</span>
             </span>
+            <div class="grid-modal">
+                <div class="carrousel">
+                    <div class="slider">
+                        <img src="img/Projects/unity/unity.webp" alt="unity-project" loading="lazy">
+                    </div>
+                    <nav class="navigation">
+                    </nav>
+                </div>
+                <div>
+                    <p class="title-desc">Características principales</p>
+                    <ul>
+                        <li data-section="Projects" data-project="VideoGames" data-value="List1">Uso de archivos MIDI
+                        </li>
+                        <li data-section="Projects" data-project="VideoGames" data-value="List2">Jugabilidad con el
+                            teclado
+                        </li>
+                    </ul>
+                    <p data-section="Projects" data-project="VideoGames" data-value="Description">Este juego fue
+                        desarrollado con Unity, usando archivos MIDI creados de mi propia cuenta, y permitiendo la
+                        captura de multiples teclas presionadas al mismo tiempo</p>
+                </div>
+            </div>
             <form method="dialog">
-                <button class="button-close-modal">Close</button>
+                <button class="button-close-modal">Cerrar</button>
             </form>
         </dialog>
     </section>
-
-</div>
+</main>
 </body>
 </html>

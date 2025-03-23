@@ -17,7 +17,6 @@
     src: url("../Fonts/CascadiaCode/CascadiaCode-Regular-edited.woff2") format("woff2");
 }
 
-
 @font-face {
     font-family: "Cascadia Code";
     src: url("../Fonts/CascadiaCode/CascadiaCode-Bold.woff2") format("woff2");
@@ -342,6 +341,11 @@ nav > img {
         line-height: 1.7;
     }
 
+    li::marker {
+        content: "-> ";
+    }
+
+
     #help {
         place-self: center;
         grid-column: span 3;
@@ -351,6 +355,15 @@ nav > img {
 
     #help ul {
         padding-left: 1rem;
+    }
+
+    .button-command {
+        padding-block: 0;
+        padding-inline: 0.5em;
+    }
+
+    .button-command:hover, #download-anchor:hover {
+        border-color: var(--ctp-mocha-blue);
     }
 
     .cell-airline {
@@ -437,6 +450,14 @@ nav > img {
         outline: none;
     }
 
+    #download-anchor {
+        background-color: transparent;
+        border-style: solid;
+        border-radius: 3px;
+        border-color: transparent;
+        padding-inline: 0;
+        cursor: pointer;
+    }
 
     .wrapper {
         --gap: 0.5em;
@@ -462,6 +483,16 @@ nav > img {
         padding-bottom: 1em;
         display: flex;
         flex-direction: column;
+    }
+
+    .list-icon {
+        display: flex;
+        align-items: center;
+        gap:1em;
+    }
+
+    .icon {
+        width: 1em;
     }
 
     button {
@@ -492,6 +523,18 @@ nav > img {
 
     .wrapper p {
         max-width: 60ch;
+    }
+
+    .person {
+        padding-inline: 0;
+        display: grid;
+        align-items: center;
+        justify-items: center;
+    }
+
+    #personal {
+        width: 12em;
+        max-width: 12em;
     }
 
     .wrapper > section > p {
@@ -729,10 +772,15 @@ nav > img {
 @media (max-width: 53em) {
     :root {
         --fs-xl: clamp(1.3rem, 12vw - 2rem, 2.2rem);
+        --margin-inline-main-content: 0.2rem;
     }
 
     .wrapper-typewriting {
-        margin-inline: 0.2rem;
+        margin-inline: var(--margin-inline-main-content);
+    }
+
+    .wrapper {
+        margin-inline: var(--margin-inline-main-content);
     }
 
     #title {
@@ -747,8 +795,20 @@ nav > img {
         padding-right: 0;
     }
 
-    #navigation-mobile {
-        display: block;
+    .button-command {
+        font-size: var(--fs-sm);
+    }
+
+
+}
+
+@media (max-width: 48em) {
+    .grid-modal {
+        margin-top: 3em;
+    }
+
+    .info-modal > form button {
+        font-size: calc(var(--fs-sm) - 0.35rem);
     }
 }
 

@@ -6,6 +6,15 @@ let textTitle = title.dataset.title;
 let lengthText = textTitle.length;
 let counter = 0;
 
+
+let buttonEnglish = document.querySelector("#set-language-english");
+let buttonSpanish = document.querySelector("#set-language-spanish");
+buttonEnglish.addEventListener("click", function () {
+    changeLanguage('english')
+})
+buttonSpanish.addEventListener("click", function () {
+    changeLanguage('spanish')
+})
 let modeCell = document.querySelector("#mode-vim");
 let timeCell = document.querySelector("#time");
 let containerTime = document.querySelector("#time-cell");
@@ -14,7 +23,6 @@ navigations.forEach(navigation => {
     let imageSlider = navigation.parentElement.querySelector(".slider")
     let images = imageSlider.querySelectorAll("img")
     let anchors = navigation.querySelectorAll("a")
-    let numberAnchors = anchors.length;
     let currentIndex = 0;
     let isDragging = false
     let startPosition = 0;
@@ -22,11 +30,14 @@ navigations.forEach(navigation => {
     let touchStartX = 0
     let touchEndX = 0
     let isSwiping = false;
+    if (images.length === 1) {
+        return
+    }
 
     anchors[currentIndex].classList.add("selected-navigation");
 
     anchors.forEach((anchor, index) => {
-        anchor.addEventListener("click", (e) => {
+        anchor.addEventListener("click", () => {
             if (images[index]) {
                 currentIndex = goToImage(anchors, images, index, navigation);
             }
@@ -229,7 +240,7 @@ header.addEventListener("click", function (event) {
     stateHeader = states.FOCUSED;
     event.stopPropagation();
 });
-document.addEventListener("click", function (event) {
+document.addEventListener("click", function () {
     stateHeader = states.NOT_FOCUSED;
 })
 
@@ -271,37 +282,116 @@ function setLightMode() {
 }
 
 function downloadCV() {
-    console.log('funciona download')
+    const anchorDownload = document.querySelector("#download-anchor");
+    if (anchorDownload) {
+        anchorDownload.click()
+    }
+    messageCommand = 'CV Descargado';
 }
 
 function setDarkMode() {
     console.log('funciona dark')
 }
 
+function setNewTranslation(json, keysTree = []) {
+    if (keysTree.length === 0) {
+        keysTree.push('');
+    }
+    let keyParent = keysTree.at(keysTree.length - 1);
+    for (let key in json) {
+        if (json.hasOwnProperty(key) && typeof json[key] === 'object') {
+            keysTree.push(key)
+            let newJSon = json[key];
+            setNewTranslation(newJSon, keysTree)
+            keysTree.pop()
+        } else {
+            let selector = `[data-section="${keysTree[1]}"][data-value="${key}"]`;
+            if (keysTree.length >= 3) {
+                selector = `[data-section="${keysTree[1]}"][data-project="${keysTree[2]}"][data-value="${key}"]`;
+            }
+            let element = document.querySelector(selector)
+            if (element) {
+                if (element.tagName === 'BUTTON') {
+                    let buttons = document.querySelectorAll(`.${element.classList.item(0)}`)
+                    buttons.forEach(button => {
+                        button.innerText = json[key];
+                    })
+                    continue
+                }
+                if (element.parentElement.classList.contains('command-prompt')) {
+                    let spans = document.querySelectorAll(`.command-prompt`);
+                    spans.forEach(span => {
+                        span.firstElementChild.innerText = json[key];
+                    })
+                    continue
+                }
+                if (element.id === 'title') {
+                    element.dataset.title = json[key];
+                }
+                if (element.dataset.value === 'TitleDescription') {
+                    let titlesDesc = document.querySelectorAll('.title-desc')
+                    titlesDesc.forEach(title => {
+                        title.innerText = json[key];
+                    })
+                    continue;
+                }
+                element.innerHTML = json[key];
+            }
+        }
+    }
+    return keyParent;
+}
+
 function changeLanguage(language) {
+    let body = document.querySelector('body');
+    let bodyLanguage = body.dataset.language;
+
     let locales = {
         'spanish': 'es',
         'english': 'en'
     }
-    fetch(`../Languages/${locales[language]}.json`)
-        .then(res => res.json())
-        .then(json => {
-            // for (let textToChange of textsElementsToChange) {
-            //     let section = textToChange.dataset.section;
-            //     let value = textToChange.dataset.value;
-            //     textToChange.innerHTML = texts[section][value];
-            // }
-            if (locales[language] === 'es') {
-                messageCommand = 'El idioma ha sido cambiado con éxito';
-            } else {
-                messageCommand = 'Language changed successfully';
-            }
-            changeMessageText(messageCommand)
-        })
-        .catch(err => {
-            console.log(err)
-            messageCommand = 'Hubo un error al cambiar el idioma';
-        });
+    if (locales[language] && bodyLanguage === locales[language]) {
+        switch (locales[language]) {
+            case 'es':
+                messageCommand = 'El idioma es el mismo'
+                break;
+            case 'en':
+                messageCommand = 'The language is the same'
+                break;
+        }
+
+        changeMessageText(messageCommand)
+        return
+    }
+    body.dataset.language = locales[language];
+
+    let localJson = localStorage.getItem(`translation${language}`);
+    if (!localJson) {
+        fetch(`../Languages/${locales[language]}.json`)
+            .then(res => res.json())
+            .then(json => {
+                setNewTranslation(json)
+                if (locales[language] === 'es') {
+                    messageCommand = 'El idioma ha sido cambiado con éxito';
+                } else {
+                    messageCommand = 'Language changed successfully';
+                }
+                changeMessageText(messageCommand)
+            })
+            .catch(err => {
+                console.log(err)
+                messageCommand = 'Hubo un error al cambiar el idioma';
+            });
+    } else {
+        setNewTranslation(localJson)
+        if (locales[language] === 'es') {
+            messageCommand = 'El idioma ha sido cambiado con éxito';
+        } else {
+            messageCommand = 'Language changed successfully';
+        }
+        changeMessageText(messageCommand)
+    }
+
     messageCommand = messageCommand === '' ? 'Error al resolver' : messageCommand;
     return true;
 }
