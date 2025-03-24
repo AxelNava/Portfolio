@@ -290,7 +290,7 @@ nav > img {
     background-color: var(--bg-color);
     color: var(--color-text-vim);
     margin-inline: 2em;
-    margin-block: 5dvh;
+    margin-block: 3dvh;
     min-height: 90dvh;
     display: grid;
     grid-auto-columns: 1fr;
